@@ -5,12 +5,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<properties resource="application.properties"/>
 	
-	<typeAliases>
+	<!-- <typeAliases>
 		<package name="kr.or.yi.mybatis_dev_HGS.dto"/>
-		<!-- <typeAlias type="kr.or.yi.mybatis_c3p0_HGS.dto.Title" alias="Title"/>
+		<typeAlias type="kr.or.yi.mybatis_c3p0_HGS.dto.Title" alias="Title"/>
 		<typeAlias type="kr.or.yi.mybatis_c3p0_HGS.dto.Department" alias="Department"/>
-		<typeAlias type="kr.or.yi.mybatis_c3p0_HGS.dto.Employee" alias="Employee"/> -->
-	</typeAliases>
+		<typeAlias type="kr.or.yi.mybatis_c3p0_HGS.dto.Employee" alias="Employee"/>
+	</typeAliases> -->
 	<environments default="development2">
 		<environment id="development1">
 			<transactionManager type="JDBC" />

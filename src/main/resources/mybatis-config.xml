@@ -32,6 +32,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		</environment>
 	</environments>
 	<mappers>
-	
+		<package name="kr.or.yi.mybatis_dev_HGS.dao.mappers"/>
 	</mappers>
 </configuration>

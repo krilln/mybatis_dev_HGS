@@ -11,11 +11,10 @@ import kr.or.yi.mybatis_dev_HGS.jdbc.MyBatisSqlSessionFactory;
 
 public class StudentMapperImpl implements StudentMapper {
 
-	private String namespace = "kr.or.yi.mybatis_dev_HGS.dao.StudentMapper";
-	private static final Log log = LogFactory.getLog(StudentMapperImpl.class);
+	private static final String namespace = "kr.or.yi.mybatis_dev_HGS.dao.StudentMapper";
 	   @Override
 	   public Student selectStudentById(Student student) {
-	      try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession()){
+	      try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
 	         return sqlSession.selectOne(namespace+".selectStudentById",student );
 	      }
 	   }

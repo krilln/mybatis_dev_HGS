@@ -5,7 +5,10 @@ import static org.junit.Assert.*;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -76,5 +79,50 @@ public class StudentMapperTest extends AbstractTest {
 		int deleteStudent = dao.deleteStudent(3);
 		Assert.assertSame(1,deleteStudent);
 	}
-
+	
+	@Test
+	public void test07selectStudentByAllForResultMap() {
+		log.debug("test07selectStudentByAllForResultMap()");
+		List<Student> lists = dao.selectStudentByAllForResultMap();
+		Assert.assertNotNull(lists);
+	}
+	
+	@Test
+	public void test08selectStudentByAllForHashMap() {
+		log.debug("test07selectStudentByAllForResultMap()");
+		List<Map<String, Object>> lists = dao.selectStudentByAllForHashMap();
+		
+		System.out.println("lists.size() => " + lists.size());
+		for(int i=0; i<lists.size(); i++) {
+			Map<String, Object> m =lists.get(1);
+			Iterator<String> it = m.keySet().iterator();
+			while(it.hasNext()) {
+				String key = it.next();
+				System.out.println("key = " + key + "value = " + m.get(key));
+			}
+		}
+		
+		for(Map<String, Object> m : lists) {
+			for(Entry<String, Object> e : m.entrySet()) {
+				log.debug(String.format("\tkey(%s)-value(%s)",e.getKey(), e.getValue()));
+			}
+			System.out.println();
+		}
+		Assert.assertNotNull(lists);
+	}
+	@Test
+	public void test09selectStudentByNoForResultMapExtends() {
+		log.debug("test09selectStudentByNoForResultMapExtends()");
+		Student student = new Student();
+		student.setStudId(1);
+		Student extStd = dao.selectStudentByNoForResultMapExtends(student);
+		Assert.assertNotNull(extStd);
+	}
+	
+	@Test
+	public void test10selectStudentByNoForResultMapExtends2() {
+		log.debug("test10selectStudentByNoForResultMapExtends2()");
+		Student lists = dao.selectStudentByNoForResultMapExtends2(1);
+		Assert.assertNotNull(lists);
+	}
 }

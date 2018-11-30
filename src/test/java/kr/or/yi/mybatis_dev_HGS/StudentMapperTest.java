@@ -1,6 +1,8 @@
 package kr.or.yi.mybatis_dev_HGS;
 
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,6 +23,11 @@ public class StudentMapperTest {
 	      Student searchStd = dao.selectStudentById(newStd);
 	      
 	      Assert.assertEquals(newStd.getStudId(), searchStd.getStudId());
+	   }
+	   
+	   public void test02selectStudentByAll() {
+		   List<Student> lists = dao.selectStudentByAll();
+		   Assert.assertNotNull(lists);
 	   }
 
 }

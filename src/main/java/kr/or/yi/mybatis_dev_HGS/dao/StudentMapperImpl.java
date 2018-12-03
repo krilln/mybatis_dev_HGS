@@ -83,4 +83,10 @@ public class StudentMapperImpl implements StudentMapper {
 	      }
 	}
 
+	@Override
+	public Student selectStudentOneToOne(int studId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

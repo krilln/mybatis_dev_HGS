@@ -96,5 +96,11 @@ public class StudentMapperTest extends AbstractTest{
 		  List<Student> lists = dao.selectStudentByAllForResultMapExt();
 	      Assert.assertNotNull(lists);
 	   }
+	   
+	   @Test
+	   public void test11selectAddressByid() {
+		  List<Student> lists = dao.selectStudentByAllForResultMapExt();
+	      Assert.assertNotNull(lists);
+	   }
 
 }

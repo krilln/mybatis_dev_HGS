@@ -1,6 +1,7 @@
 package kr.or.yi.mybatis_dev_HGS.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
@@ -58,6 +59,27 @@ public class StudentMapperImpl implements StudentMapper {
 	public List<Student> selectStudentByAllForResults() {
 		 try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
 	         return sqlSession.selectList(namespace+".selectStudentByAllForResults");
+	      }
+	}
+
+	@Override
+	public List<Map<String, Object>> selectStudentByAllForResultsMap() {
+		 try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
+	         return sqlSession.selectList(namespace+".selectStudentByAllForResultsMap");
+	      }
+	}
+
+	@Override
+	public List<Student> selectStudentByAllForMapper() {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
+	         return sqlSession.selectList(namespace+".selectStudentByAllForMapper");
+	      }
+	}
+
+	@Override
+	public List<Student> selectStudentByAllForResultMapExt() {
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
+	         return sqlSession.selectList(namespace+".selectStudentByAllForResultMapExt");
 	      }
 	}
 

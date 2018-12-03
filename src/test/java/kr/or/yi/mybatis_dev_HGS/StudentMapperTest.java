@@ -4,6 +4,7 @@ package kr.or.yi.mybatis_dev_HGS;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -23,7 +24,7 @@ public class StudentMapperTest extends AbstractTest{
 	   
 	   @Test
 	   public void test01selectStudentById() {
-		   log.debug("test01selectStudentById()");
+		   log.debug(Thread.currentThread().getStackTrace()[1].getMethodName() + "()");
 		      Student newstd = new Student();
 		      newstd.setStudId(2);
 		      Student searchstd =dao.selectStudentById(newstd);
@@ -37,7 +38,6 @@ public class StudentMapperTest extends AbstractTest{
 	   
 	   @Test
 	   public void test03inserStudent() {
-	      log.debug("test03inserStudent()");
 	      Calendar newDate = GregorianCalendar.getInstance();
 	      newDate.set(1990, 2, 28);
 	      
@@ -51,9 +51,8 @@ public class StudentMapperTest extends AbstractTest{
 	      Assert.assertEquals(1, res);
 	   }
 	   
-	   @Test
+	  /* @Test
 	   public void test04updateStudent() {
-	      log.debug("test04updateStudent()");
 	      Student student = new Student();
 	      student.setStudId(10);
 	      student.setName("홍길동30");
@@ -71,15 +70,30 @@ public class StudentMapperTest extends AbstractTest{
 	   
 	   @Test
 	   public void test05deleteStudent() {
-	      log.debug("test05deleteStudent()");
 	      int res = dao.deleteStudent(10);
 	      Assert.assertEquals(1, res);
-	   }
+	   }*/
 	   
 	   @Test
 	   public void test07selectStudentByAllForResult() {
-	      log.debug("test07selectStudentByAllForResult()");
 	      List<Student> lists = dao.selectStudentByAllForResults();
+	      Assert.assertNotNull(lists);
+	   }
+	   
+	   @Test
+	   public void test08selectStudentByAllForResultsMap() {
+	      List<Map<String, Object>> maps = dao.selectStudentByAllForResultsMap();
+	      Assert.assertNotNull(maps);
+	   }
+	   @Test
+	   public void test09selectStudentByAllForMapper() {
+		  List<Student> lists = dao.selectStudentByAllForMapper();
+	      Assert.assertNotNull(lists);
+	   }
+	   
+	   @Test
+	   public void test10selectStudentByAllForResultMapExt() {
+		  List<Student> lists = dao.selectStudentByAllForResultMapExt();
 	      Assert.assertNotNull(lists);
 	   }
 

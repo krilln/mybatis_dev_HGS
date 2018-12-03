@@ -99,7 +99,14 @@
 		where stud_id = #{studId};
 	</select>
 	
+	<resultMap id="StudentAssociation" type="Student" extends="StudentResult">
+		<association property="address" resultMap="kr.or.yi.mybatis_dev_HGS.dao.AddressMapper.AddressResult_"/>
+	</resultMap>
 	
+	<select id="selectStudentByNoAssociation" parameterType="Student" resultMap="StudentAssociation">
+		<include refid="selectJoinAddressSql"></include>
+		<include refid="whereSql"/>
+	</select>
 	
 	
 	

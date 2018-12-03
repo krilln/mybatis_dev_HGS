@@ -15,4 +15,6 @@ public interface StudentMapper {
 	List<Map<String, Object>> selectStudentByAllForHashMap();
 	Student selectStudentByNoForResultMapExtends(Student student);
 	Student selectStudentByNoForResultMapExtends2(int studId);
+	List<Student> selectStudentByNoAssociation(Student student);
+	List<Student> selectStudentByNoAssociation();
 }

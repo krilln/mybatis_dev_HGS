@@ -81,5 +81,15 @@ public class StudentMapperImpl implements StudentMapper {
 			return sqlSession.selectOne(namespace + ".selectStudentByNoForResultMapExtends2", studId);
 		}
 	}
+	
+	@Override
+	public List<Student> selectStudentByNoAssociation() {
+		try (SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
+			return sqlSession.selectOne(namespace + ".selectStudentByNoAssociation");
+		}
+	}
+
+	
+
 
 }
